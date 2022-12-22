@@ -8,7 +8,6 @@ import Detail from './components/pages/Detail'
 import Catalog from './components/pages/Catalog'
 
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
