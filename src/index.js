@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 
-import Home from './components/pages/Home'
-import Detail from './components/pages/Detail'
-import Catalog from './components/pages/Catalog'
+import Home from './pages/Home'
+import Detail from './pages/Detail'
+import Catalog from './pages/Catalog'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,7 +19,6 @@ root.render(
         <Route path='/:category' element={<Catalog />} />
       </Route>
     </Routes>
-
   </BrowserRouter>
 );
 

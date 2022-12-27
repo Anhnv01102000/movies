@@ -1,6 +1,7 @@
 @use "../../scss/" as *;
 
 .logo {
+    color: #fff;
     font-size: 3rem;
     font-weight: 700;
     @include flex(center, unset);
@@ -12,11 +13,18 @@
             margin-right: 0;
         }
     }
-    span{
-        color: $main-color;
-        
+    span {
+        color: $main-color ;
     }
 }
+
+.logo:hover {
+    a {color: $main-color}
+    span{
+        color: #fff !important
+    }
+}
+
 
 .header {
     height: $header-height;
@@ -26,7 +34,7 @@
     width: 100%;
     z-index: 99;
     transition: height 0.3s ease, background-color 0.3s ease;
-
+    
     &.shrink {
         height: $header-shrink-height;
         background-color: $body-bg;
@@ -35,7 +43,7 @@
     &__wrap {
         @include flex(center, space-between);
         height: 100%;
-        padding: 0 5rem;
+        padding: 0 2rem;
 
         @include mobile {
             justify-content: center;

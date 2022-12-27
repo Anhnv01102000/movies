@@ -1,51 +1,26 @@
-import axiosClient from "./axiosClient";
+import axios from "axios";
 
-export const category = {
-    movie: 'movie',
-    tv: 'tv'
+const apiKey = "dd5d253af859f054ee2adde6ce522651";
+const originalImage = (imgPath) => `https://image.tmdb.org/t/p/original/${imgPath}`
+const w500Image = (imgPath) => `https://image.tmdb.org/t/p/w500/${imgPath}`
+
+const getMoviePopular = () => {
+    return axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
 }
 
-export const movieType = {
-    upcoming: 'upcoming',
-    popular: 'popular',
-    top_rated: 'top_rated'
+const getMovieTopRated = () => {
+    return axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`)
 }
 
-export const tvType = {
-    popular: 'popular',
-    top_rated: 'top_rated',
-    on_the_air: 'on_the_air'
+const getTVPopular = () => {
+    return axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=en-US&page=1`)
 }
 
-const tmdbApi = {
-    getMoviesList: (type, params) => {
-        const url = 'movie/' + movieType[type];
-        return axiosClient.get(url, params);
-    },
-    getTvList: (type, params) => {
-        const url = 'tv/' + tvType[type];
-        return axiosClient.get(url, params);
-    },
-    getVideos: (cate, id) => {
-        const url = category[cate] + '/' + id + '/videos';
-        return axiosClient.get(url, { params: {} });
-    },
-    search: (cate, params) => {
-        const url = 'search/' + category[cate];
-        return axiosClient.get(url, params);
-    },
-    detail: (cate, id, params) => {
-        const url = category[cate] + '/' + id;
-        return axiosClient.get(url, params);
-    },
-    credits: (cate, id) => {
-        const url = category[cate] + '/' + id + '/credits';
-        return axiosClient.get(url, { params: {} });
-    },
-    similar: (cate, id) => {
-        const url = category[cate] + '/' + id + '/similar';
-        return axiosClient.get(url, { params: {} });
-    },
+const getTVTopRated = () => {
+    return axios.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=${apiKey}&language=en-US&page=1`)
+}
+const getVideos = (movie_id) => {
+    return axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${apiKey}&language=en-US`)
 }
 
-export default tmdbApi;
+export { w500Image, originalImage, getMoviePopular, getMovieTopRated, getTVPopular, getTVTopRated, getVideos }

@@ -6,9 +6,12 @@ import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <Header />
-    </div>
+    <>
+      <div className='header'><Header /></div>
+      <div className='outlet'><Outlet /></div>
+      <div className='footer'><Footer /></div>
+
+    </>
   )
 }
 

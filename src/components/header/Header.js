@@ -2,6 +2,8 @@ import './header.scss'
 import React, { useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+import logo from '../../assets/CineFlex.png'
+
 const headerNav = [
     {
         display: 'Home',
@@ -41,7 +43,7 @@ const Header = () => {
         <div ref={headerRef} className="header">
             <div className="header__wrap container">
                 <div className="logo">
-                    <Link to="/">Cine<span>Flix</span></Link>
+                    <Link to="/">Cine<span>Flex</span></Link>
                 </div>
                 <ul className="header__nav">
                     {
@@ -58,5 +60,6 @@ const Header = () => {
         </div>
     );
 }
+
 
 export default Header
