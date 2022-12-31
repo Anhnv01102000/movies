@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { w500Image, originalImage, getMoviePopular, getVideos } from '../../api/tmdbApi'
+import { w500Image, originalImage, category, getMoviePopular, getVideos } from '../../api/tmdbApi'
 
 import Modal, { ModalContent } from '../modal/modal';
 
@@ -14,14 +14,15 @@ const HeroSlideItem = props => {
     const setModalActive = async () => {
         const modal = document.querySelector(`#modal_${item.id}`);
 
-        const videos = await getVideos(item.id);
+        const videos = await getVideos(category.movie, item.id);
 
         if (videos.data.results.length > 0) {
             const videoSrc = 'https://www.youtube.com/embed/' + videos.data.results[0].key;
             modal.querySelector('.modal__content > iframe').setAttribute('src', videoSrc);
-        } else {
-            modal.querySelector('.modal__content').innerHTML = 'No trailer';
         }
+        // else {
+        //     modal.querySelector('.modal__content').innerHTML = 'No trailer';
+        // }
 
         modal.classList.toggle('active');
 

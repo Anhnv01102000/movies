@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 
 import Home from './pages/Home'
-import Detail from './pages/Detail'
+import Detail from './pages/detail/Detail'
 import Catalog from './pages/Catalog'
 
 

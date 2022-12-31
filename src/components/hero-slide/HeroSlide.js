@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
 import 'swiper/css';
 
-import { originalImage, getMoviePopular } from '../../api/tmdbApi'
+import { getMovieType, movieType } from '../../api/tmdbApi'
 
 import HeroSlideItem from "./HeroSlideItem";
 import { TrailerModal } from "./HeroSlideItem"
@@ -22,7 +22,7 @@ const HeroSlide = () => {
     }, [])
 
     const getMovies = async () => {
-        let res = await getMoviePopular()
+        let res = await getMovieType(movieType.popular)
         if (res && res.data) {
             setMovieItems(res.data.results.slice(10, 15))
         }

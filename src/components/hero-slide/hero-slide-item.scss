@@ -1,49 +1,110 @@
-@use "../../scss/" as *;
+@use "../../scss/"as *;
 
 
 .hero-slide__item {
-    padding: 8rem 1rem;
-    width: 100%;
-    position: relative;
+    padding            : 8rem 1rem;
+    width              : 100%;
+    position           : relative;
     background-position: center !important;
-    background-size: cover !important;
-    background-repeat: no-repeat;
+    background-size    : cover !important;
+    background-repeat  : no-repeat;
+
 
     .button-watch {
-        padding: 10px 30px;
-        border: solid 1px #007bff;
+        padding      : 10px 20px;
+        border       : solid 1px #fff;
         border-radius: 2rem;
-        background-color: #007bff;
-        color: #fff;
-        font-weight: 600;
+        color        : #007bff;
+        font-weight  : 600;
+        font-size    : 1.2rem;
+        position     : relative;
+        z-index      : 1;
+        transition   : 0.4s ease-in-out;
     }
+
+    .button-watch:before {
+        content      : "";
+        width        : 0%;
+        height       : 100%;
+        border       : #fff;
+        border-radius: 20px;
+        position     : absolute;
+        background   : #007bff;
+        left         : 0;
+        top          : 0;
+        z-index      : -1;
+        transition   : 0.4s ease-in-out;
+    }
+
+    .button-watch:hover {
+        color: #fff;
+    }
+
+    .button-watch:hover::before {
+        content : "";
+        width   : 100%;
+        height  : 100%;
+        position: absolute;
+    }
+
 
     .button-trailer {
-        padding: 10px 30px;
-        border: solid 1px #fff;
+        padding      : 10px 20px;
+        border       : solid 1px #fff;
         border-radius: 2rem;
-        background-color: #fff;
-        color: #007bff;
-        font-weight: 600;
+        color        : #007bff;
+        font-weight  : 600;
+        font-size    : 1.2rem;
+        position     : relative;
+        z-index      : 1;
+        transition   : 0.4s ease-in-out;
     }
 
-    &::before {
-        content: "";
+    .button-trailer:before {
+        content      : "";
+        width        : 0%;
+        height       : 100%;
+        border       : #fff;
+        border-radius: 20px;
+        position     : absolute;
+        background   : #007bff;
+        left         : 0;
+        top          : 0;
+        z-index      : -1;
+        transition   : 0.4s ease-in-out;
+    }
+
+    .button-trailer:hover {
+        color: #fff;
+    }
+
+    .button-trailer:hover::before {
+        content : "";
+        width   : 100%;
+        height  : 100%;
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+    }
+
+
+
+
+    &::before {
+        content : "";
+        position: absolute;
+        top     : 0;
+        left    : 0;
+        width   : 100%;
+        height  : 100%;
         @include overlay();
     }
 
     &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100px;
+        content         : "";
+        position        : absolute;
+        bottom          : 0;
+        left            : 0;
+        width           : 100%;
+        height          : 100px;
         background-image: linear-gradient(to top, $body-bg, rgba($black, 0));
     }
 
@@ -52,20 +113,20 @@
         position: relative;
 
         &__info {
-            width: 55%;
-            padding: 0 3rem;
+            width   : 60%;
+            padding : 0 3rem;
             position: relative;
 
             @include tablet {
                 width: 100%;
             }
 
-            & > * ~ * {
+            &>*~* {
                 margin-top: 3rem;
             }
 
             .title {
-                font-size: 3rem;
+                font-size  : 3rem;
                 font-weight: 700;
                 line-height: 1;
 
@@ -78,15 +139,15 @@
                 font-weight: 700;
             }
 
-            .btns > * ~ * {
+            .btns>*~* {
                 margin-left: 1rem;
             }
 
             .btns,
             .title,
             .overview {
-                opacity: 0;
-                transform: translateY(-100px);
+                opacity   : 0;
+                transform : translateY(-100px);
                 transition: transform 0.5s ease, opacity 0.5s ease;
             }
         }
@@ -94,37 +155,39 @@
         &__poster {
             flex: 1;
             @include flex(center, flex-start);
-            position: relative;
+            position       : relative;
             justify-content: space-around;
-        
-            img {
-                width: 320px;
-                border-radius: $border-radius;
-                box-shadow: $box-shadow;
 
-                transform: scale(0);
+            img {
+                width        : 320px;
+                border-radius: $border-radius;
+                box-shadow   : $box-shadow;
+
+                transform : scale(0);
                 transition: transform 0.7s ease;
             }
 
-              @include tablet {
+            @include tablet {
                 display: none;
             }
         }
     }
 
-    &.active > &__content > &__content__poster {
+    &.active>&__content>&__content__poster {
         img {
             transform: scale(1);
         }
     }
 
-    &.active > &__content > &__content__info {
+    &.active>&__content>&__content__info {
+
         .btns,
         .title,
         .overview {
-            opacity: 1;
+            opacity  : 1;
             transform: translateY(0);
         }
+
         .title {
             transition-delay: 0.3s, 0.3s;
         }
@@ -137,5 +200,5 @@
             transition-delay: 0.9s, 0.9s;
         }
     }
-        
+
 }

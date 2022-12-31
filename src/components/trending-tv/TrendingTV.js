@@ -4,24 +4,26 @@ import './trending-tv.scss'
 
 import SwiperCore, { Autoplay } from "swiper";
 import { SwiperSlide, Swiper } from 'swiper/react';
-import { Link } from 'react-router-dom';
 
-import { getMoviePopular, getTVPopular, w500Image } from "../../api/tmdbApi";
+import MovieCard from "../movie-card/MovieCard";
+
+import { tvType, category, getTVType } from "../../api/tmdbApi";
 
 const TrendingTV = props => {
 
     SwiperCore.use([Autoplay])
 
-    const [moviePopular, setMoviePopular] = useState([])
+
+    const [items, setItems] = useState([])
 
     useEffect(() => {
-        mvPopular()
+        tvTreding()
     }, [])
 
-    const mvPopular = async () => {
-        let res = await getTVPopular()
+    const tvTreding = async () => {
+        let res = await getTVType(tvType.popular)
         if (res && res.data) {
-            setMoviePopular(res.data.results)
+            setItems(res.data.results)
         }
         // console.log("Check res: ", res)
     }
@@ -34,17 +36,10 @@ const TrendingTV = props => {
                 slidesPerView={'auto'}
             >
                 {
-                    moviePopular.map((item, index) => (
+                    items.map((item, index) => (
                         <SwiperSlide className="slide-movie" key={index}>
-                            < Link to={'/tv/' + item.id} className="movie-card">
-                                <div className="card-head" >
-                                    <img src={w500Image(item.poster_path)} />
-                                </div>
-                                <h3>{item.title || item.name}</h3>
-                            </Link>
+                            <MovieCard category={category.tv} item={item} key={index} />
                         </SwiperSlide>
-
-
                     ))
                 }
             </Swiper >
