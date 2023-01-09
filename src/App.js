@@ -10,7 +10,6 @@ function App() {
       <div className='header'><Header /></div>
       <div className='outlet'><Outlet /></div>
       <div className='footer'><Footer /></div>
-
     </>
   )
 }

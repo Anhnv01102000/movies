@@ -13,8 +13,8 @@ const CastList = props => {
     useEffect(() => {
         const credits = async () => {
             const res = await getCredits(category, props.id);
-            // setCasts(res.cast.slice(0, 5));
-            // console.log(res);
+            setCasts(res.data.cast.slice(0, 5));
+            console.log(res);
 
         }
         credits();

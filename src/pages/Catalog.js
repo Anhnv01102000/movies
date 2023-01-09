@@ -9,8 +9,9 @@ import { category as cate, getTVList } from '../api/tmdbApi';
 import MovieGrid from '../components/movie-grid/MovieGrid';
 
 
-const Catalog = () => {
+const Catalog = props => {
     const { category } = useParams()
+    // console.log("category: ", category);
     return (
         <>
             <PageHeader>

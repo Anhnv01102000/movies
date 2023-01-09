@@ -24,7 +24,7 @@ const HeroSlide = () => {
     const getMovies = async () => {
         let res = await getMovieType(movieType.popular)
         if (res && res.data) {
-            setMovieItems(res.data.results.slice(10, 15))
+            setMovieItems(res.data.results.slice(14, 19))
         }
         // console.log("Check res: ", res)
     }

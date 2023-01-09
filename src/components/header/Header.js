@@ -20,6 +20,7 @@ const headerNav = [
 ];
 
 const Header = () => {
+
     const { pathname } = useLocation();
     const headerRef = useRef(null);
 

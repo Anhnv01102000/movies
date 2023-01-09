@@ -37,7 +37,7 @@ const Similar = props => {
                 {
                     items.map((item, index) => (
                         <SwiperSlide className="slide-movie" key={index}>
-                            <MovieCard category={category} item={item} />
+                            <MovieCard category={props.category} item={item} />
                         </SwiperSlide>
                     ))
                 }

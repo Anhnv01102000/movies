@@ -14,7 +14,7 @@ const VideoList = props => {
         const videos = async () => {
             const res = await getDetail(category, props.id);
             setVideos(res.data);
-            console.log(res.data);
+            // console.log(res.data);
         }
         videos();
     }, [category, props.id]);
