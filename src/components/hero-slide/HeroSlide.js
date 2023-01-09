@@ -24,7 +24,7 @@ const HeroSlide = () => {
     const getMovies = async () => {
         let res = await getMovieType(movieType.popular)
         if (res && res.data) {
-            setMovieItems(res.data.results.slice(14, 19))
+            setMovieItems(res.data.results.slice(0, 5))
         }
         // console.log("Check res: ", res)
     }
@@ -37,7 +37,7 @@ const HeroSlide = () => {
                 grabCursor={true}
                 spaceBetween={0}
                 slidesPerView={1}
-                autoplay={{ delay: 5000 }}
+                autoplay={{ delay: 8000 }}
             >
                 {
                     movieItems.map((item, index) => (

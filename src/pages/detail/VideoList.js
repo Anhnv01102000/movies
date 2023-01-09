@@ -21,7 +21,7 @@ const VideoList = props => {
 
     const iframeRef = useRef(null);
     useEffect(() => {
-        const height = iframeRef.current.offsetWidth * 9 / 16 + 'px';
+        const height = iframeRef.current.offsetWidth * 9 / 16 + 30 + 'px';
         iframeRef.current.setAttribute('height', height);
     }, []);
 
