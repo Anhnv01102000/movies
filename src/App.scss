@@ -1,15 +1,16 @@
-@use "./scss/" as *;
+@use "./scss/"as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap");
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+    padding                    : 0;
+    margin                     : 0;
+    box-sizing                 : border-box;
     -webkit-tap-highlight-color: transparent;
 }
 
-html {
+html,
+button {
     font-size: 100%;
 
     @include tablet {
@@ -27,7 +28,7 @@ body {
     line-height: 1.5;
 
     background-color: $body-bg;
-    color: $txt-color;
+    color           : $txt-color;
 
     @include mobile {
         margin-bottom: 3rem;
@@ -36,7 +37,7 @@ body {
 
 a {
     text-decoration: none;
-    color: unset;
+    color          : unset;
 }
 
 @media (hover: hover) {
@@ -64,7 +65,7 @@ iframe {
 
 .container {
     max-width: 1660px;
-    margin: auto;
+    margin   : auto;
 }
 
 .mb-3 {
@@ -82,4 +83,3 @@ iframe {
 .section__header {
     @include flex(center, space-between);
 }
-

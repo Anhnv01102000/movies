@@ -1,5 +1,7 @@
-@use "../../scss/breakpoint" as *;
-@use "../../scss/" as *;
+@use "../../scss/breakpoint"as *;
+@use "../../scss/"as *;
+
+
 .movie-list {
     .swiper-slide {
         width: 15%;
@@ -15,23 +17,23 @@
 }
 
 
-.slide-movie{
+.slide-movie {
     margin-right: 20px !important;
 }
 
 .card-head {
-    img{
+    img {
         border-radius: 25px;
     }
 }
 
-.movie-card h3{
-        text-align: center  ;
-    }
+.movie-card h3 {
+    text-align: center;
+}
 
 .movie-card:hover {
-    img{
-        opacity: 0.3;
+    img {
+        opacity   : 0.3;
         transition: all 0.2s ease 0s;
     }
 }
