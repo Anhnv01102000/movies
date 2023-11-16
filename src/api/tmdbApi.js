@@ -27,11 +27,11 @@ const getVideos = (category, id) => {
 }
 
 const getMovieType = (movieType, page) => {
-    return axios.get(`https://api.themoviedb.org/3/movie/${movieType}?api_key=${apiKey}&language=en-US&page=${page}`)
+    return axios.get(`https://api.themoviedb.org/3/movie/${movieType}?api_key=${apiKey}&language=en-US`)
 }
 
 const getTVType = (tvType, page) => {
-    return axios.get(`https://api.themoviedb.org/3/tv/${tvType}?api_key=${apiKey}&language=en-US&page=${page}`)
+    return axios.get(`https://api.themoviedb.org/3/tv/${tvType}?api_key=${apiKey}&language=en-US`)
 }
 
 const search = (category, page, keyword) => {
